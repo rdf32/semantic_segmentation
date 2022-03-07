@@ -107,8 +107,7 @@ def PointNet(NUM_POINTS, NUM_CLASSES): #segmentation
     x = conv_bn(x, 128)
     x = conv_bn(x, 64)
 
-    x = dense_bn(x, 64)
-    x = layers.Dropout(0.3)(x)
+    x = conv_bn(x, 64)
 
     outputs = layers.Conv1D(NUM_CLASSES, kernel_size=1, padding="same", activation='softmax')(x)
 
